@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UniAction: Unified Action Conditioning for World Models</title>
+  <meta name="description" content="UniAction represents any action as a sparse set of action elements, letting force, camera control, hand pose and robot pose condition one world model.">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="UniAction: Unified Action Conditioning for World Models">
+  <meta property="og:description" content="One world model conditioned on force, camera control, hand pose and robot pose.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&display=swap">
+  <script type="module" crossorigin src="/assets/index-COWtrMya.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-ZhAJkHp1.css">
+</head>
+<body>
+  <header class="masthead">
+    <h1><span class="name">UniAction:</span> Unified Action Conditioning <br class="wide-only">for World Models</h1>
+    <p class="authors">
+      <span class="author"><a href="https://bowenxue.me/">Bowen Xue</a><sup>*</sup></span>
+      <span class="author"><a href="https://kyleleey.github.io/">Zizhang Li</a><sup>*</sup></span>
+      <span class="author"><a href="https://kovenyu.com/">Hong-Xing (Koven) Yu</a></span>
+      <span class="author"><a href="https://jiajunwu.com/">Jiajun Wu</a></span>
+    </p>
+    <p class="affiliation">Stanford University</p>
+    <p class="contrib"><sup>*</sup>Equal contribution</p>
+    <nav class="links" aria-label="Resources">
+      <a class="link" href="https://arxiv.org/abs/2610.32977" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>Paper
+      </a>
+      <a class="link" href="https://huggingface.co/BowenXue/UniAction" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg>Model
+      </a>
+      <a class="link" href="https://huggingface.co/datasets/BowenXue/UniAction-Train" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="2.5"/><path d="M4.5 5.5v13c0 1.4 3.4 2.5 7.5 2.5s7.5-1.1 7.5-2.5v-13M4.5 12c0 1.4 3.4 2.5 7.5 2.5s7.5-1.1 7.5-2.5"/></svg>Dataset
+      </a>
+      <a class="link" href="https://github.com/KBRASK/UniAction" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>Code
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <h2 class="hero-title" id="hero-title">One model, many different actions</h2>
+      <div class="hero-grid" data-widget="hero"></div>
+      <div class="hero-caption">
+        <p>Overlays mark the input action.</p>
+        <button type="button" class="hero-toggle" aria-label="Pause overview videos"></button>
+      </div>
+    </section>
+
+    <section class="block" id="composition">
+      <h2>Compositional Action Generalization</h2>
+      <p class="lead">Our model allows multiple action controls simultaneously, even though it only sees one action at a time during training.</p>
+      <div class="widget" data-widget="composition"></div>
+    </section>
+
+    <section class="block" id="comparison">
+      <h2>Comparison with Conditioning Mechanisms</h2>
+      <p class="lead">UniAction follows every kind of action more faithfully than visual or token-based conditioning.</p>
+      <div class="widget" data-widget="compare"></div>
+    </section>
+
+    <section class="block" id="unified-training">
+      <h2>Benefits of Unified Training</h2>
+      <p class="lead">One model trained on all actions together outperforms experts trained on each action alone.</p>
+      <div class="widget" data-widget="expert"></div>
+    </section>
+
+    <section class="block" id="temporal">
+      <h2>Temporal Generalization</h2>
+      <p class="lead">UniAction starts the motion exactly when the force is applied, even at times it never saw in training.</p>
+      <div class="widget" data-widget="temporal"></div>
+    </section>
+
+    <section class="block" id="scenes">
+      <h2>Scene Generalization</h2>
+      <p class="lead">UniAction carries these actions into scenes far beyond its training data.</p>
+      <div class="widget" data-widget="scene"></div>
+    </section>
+
+    <section class="block prose" id="abstract">
+      <h2>Abstract</h2>
+      <p>Actions that condition world models are highly heterogeneous, and thus existing action-conditioned world models are typically built for individual action types, fragmenting already limited action-annotated data across separate models. We introduce UniAction, a unified action-conditioning framework that represents any action as a sparse set of action elements, each with a discrete semantic identity and a continuous spatiotemporal grounding coordinate. By mapping these coordinates directly into the pretrained video model&rsquo;s native positional space, UniAction allows heterogeneous actions to condition a shared world model within the same spatiotemporal structure. We further introduce cardinality-calibrated attention to address the bias from differing action representation granularities. We evaluate UniAction on four representative action forms: force, camera control, hand pose, and robot pose. UniAction outperforms conditioning alternatives in action following, and a single jointly trained model surpasses the action-specific experts, showing that heterogeneous action data benefit from unified model and joint training.</p>
+    </section>
+
+    <section class="block" id="overview">
+      <h2>Overview</h2>
+      <figure class="method-figure">
+        <div class="figure-scroll">
+          <img src="/figures/method.webp" width="2400" height="751" alt="UniAction overview. Force, camera control, robot pose and hand pose are represented as action elements. Semantic identities index a codebook of action tokens; spatiotemporal positions are encoded with the backbone's positional encoding; action and video tokens interact in a video diffusion transformer through cardinality-calibrated attention." decoding="async">
+        </div>
+        <figcaption><b>UniAction overview.</b> Every action is represented as a sparse set of action elements, each with a discrete semantic identity and a continuous spatiotemporal coordinate in the video model&rsquo;s native positional space, so heterogeneous actions condition one shared world model through the same mechanism.</figcaption>
+      </figure>
+    </section>
+
+    <section class="block" id="bibtex">
+      <div class="bibtex-head">
+        <h2>BibTeX</h2>
+        <button type="button" class="copy" data-copy="#bibtex-code">Copy</button>
+      </div>
+      <pre><code id="bibtex-code">@article{xue2026uniaction,
+  title   = {UniAction: Unified Action Conditioning for World Models},
+  author  = {Xue, Bowen and Li, Zizhang and Yu, Hong-Xing and Wu, Jiajun},
+  journal = {arXiv preprint arXiv:2610.32977},
+  year    = {2026}
+}</code></pre>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Bowen Xue, Zizhang Li, Hong-Xing (Koven) Yu, Jiajun Wu</p>
+  </footer>
+  <noscript><p class="noscript">The interactive video results need JavaScript.</p></noscript>
+</body>
+</html>
